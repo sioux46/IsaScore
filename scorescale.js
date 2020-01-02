@@ -107,11 +107,12 @@ $(document).on("pagecreate", "#detailDialog", function(event) {
 		if (reloadId == $(this).closest("div[role='main']").find("#detailText").attr("data-isa-id")) {
 			$("body").pagecontainer("change", "#record", {transition: 'flip'});
 		}
-		else if (reloadId > 0)
-			alertIsa('Fermer d\'abord la cotation en cours', 'crimson', false);
+//		else if (reloadId > 0)
+//			alertIsa('Fermer d\'abord la cotation en cours', 'crimson', false);
 		else {
+      closeProto();
 			reloadPassation($(this).closest("div[role='main']").find("#detailText").attr("data-isa-id"), $(this).closest("div[role='main']").find("#detailText").attr("data-isa-participant"));  // role sans data- (????)
-		$("body").pagecontainer("change", "#record", {transition: 'flip'});
+		  $("body").pagecontainer("change", "#record", {transition: 'flip'});
       // refreshUserParticipants();
 		}
 	});
@@ -132,7 +133,8 @@ $(document).on("pagecreate", "#detailDialog", function(event) {
 		$("#detailMiniPanel").slideUp(TIME_OUT / 2);
 	});
 });
-//--
+
+//---------
 $(document).on("pagebeforeshow", "#detailDialog", function() {
 	$("#detailMiniPanel").hide();
 });
@@ -143,9 +145,10 @@ $(document).on("pagecreate", "#record", function() {
 		$(".radio div[class*='ui-controlgroup-controls']").css({"margin-left":"20px"});
 
 		$("#reloadProto").on("click", function () {
-			if (reloadId > 0)
+			if ( false )  // (reloadId > 0)
 				alertIsa('Fermer d\'abord la cotation en cours', 'crimson', false);
 			else {
+        closeProto();
 				openUserParticipants();
 				$("body").pagecontainer("change", "#query", {transition: 'flip'});
 				setTimeout(function () {
@@ -180,9 +183,10 @@ $(document).on("pagecreate", "#query", function() {
 		if(reloadId == $("#chooseActionsPanel").attr("data-isa-id")) {
 			$("body").pagecontainer("change", "#record", {transition: 'flip'});
 		}
-		else if (reloadId > 0)
-			alertIsa('Fermer d\'abord la cotation en cours', 'crimson', false);
+//		else if (reloadId > 0)
+//			alertIsa('Fermer d\'abord la cotation en cours', 'crimson', false);
 		else {
+      closeProto();
 			reloadPassation($("#chooseActionsPanel").attr("data-isa-id"));
 			$("body").pagecontainer("change", "#record", {transition: 'flip'});
 		}
