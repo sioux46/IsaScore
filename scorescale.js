@@ -33,51 +33,51 @@ $(document).on("mobileinit", function() {
 
 
 //     BLOQUAGE BACK BUTTON
-    $.mobile.hashListeningEnabled = false;
-    $.mobile.pushStateEnabled = false;
+  $.mobile.hashListeningEnabled = false;
+  $.mobile.pushStateEnabled = false;
 	$.mobile.changePage.defaults.changeHash = false;
 
-    $.mobile.button.prototype.options.shadow = "false";
+  $.mobile.button.prototype.options.shadow = "false";
 
 	$.event.special.swipe.horizontalDistanceThreshold = 60;
-    $.event.special.swipe.verticalDistanceThreshold = 50;
+  $.event.special.swipe.verticalDistanceThreshold = 50;
 	$.event.special.swipe.durationThreshold = 1;  // 1000
 
 //	$.mobile.textinput.prototype.options.height = "152px";
-//    $.mobile.phonegapNavigationEnabled = "true";
+//  $.mobile.phonegapNavigationEnabled = "true";
 	$.mobile.defaultPageTransition = 'none';
 	$.mobile.popup.prototype.options.transition = "pop";
 
 //	if (protocole.version.indexOf('ndroid') == -1) $.mobile.popup.prototype.options.overlayTheme = "b";
 
-//    $.mobile.page.prototype.options.domCache = true;
-//    $.mobile.button.prototype.options.corners = "false";
+//  $.mobile.page.prototype.options.domCache = true;
+//  $.mobile.button.prototype.options.corners = "false";
 });
 //*****************************************************************************************
 //*************************************** PAGE INIT **************************************
 
-$( document ).on( "click", "button, a[data-role='button'], input[type='button']", function () {
+$(document).on( "click", "button, a[data-role='button'], input[type='button']", function () {
 	this.blur();
 });
 
-$( document ).on( "toolbarcreate", function( event, ui ) {
-	$( event.target ).toolbar( "option", "transition", "slide" );
-//	$( event.target ).toolbar({ updatePagePadding: true });
+$(document).on( "toolbarcreate", function( event, ui ) {
+	$(event.target).toolbar( "option", "transition", "slide" );
+  // $( event.target ).toolbar({ updatePagePadding: true });
 
-	$( event.target ).find("a[href^='#phase'], a[href='#record']").addClass("cotationTitle");
-	$( event.target ).find("a[href='#accueil']").addClass("accueilTitle");
-	$( event.target ).find("a[href='#query']").addClass("passationsTitle");
+	$(event.target).find("a[href^='#phase'], a[href='#record']").addClass("cotationTitle");
+	$(event.target).find("a[href='#accueil']").addClass("accueilTitle");
+	$(event.target).find("a[href='#query']").addClass("passationsTitle");
 
 																// hide-show toolbar on input
 //	$( event.target ).toolbar({ hideDuringFocus: "input, textarea, select" });
 });
 
 $(document).on("pagecreate", function() {
-    $(".ui-input-text")
+  $(".ui-input-text")
             .removeClass("ui-corner-all")
             .removeClass("ui-shadow-inset");
-    $("div .ui-btn").removeClass("ui-shadow");
-    $("div[data-role='popup']").removeClass("ui-overlay-shadow");
+  $("div .ui-btn").removeClass("ui-shadow");
+  $("div[data-role='popup']").removeClass("ui-overlay-shadow");
 	$("div[data-role='footer'], div[data-role='header']").attr({"data-position":"fixed", "data-tap-toggle":"false"}).css({"border-top-color":"#EEEEEE", "border-bottom-color":"#EEEEEE"});
 });
 //----------------------------------------------------------     #accueil
@@ -112,7 +112,7 @@ $(document).on("pagecreate", "#detailDialog", function(event) {
 		else {
 			reloadPassation($(this).closest("div[role='main']").find("#detailText").attr("data-isa-id"), $(this).closest("div[role='main']").find("#detailText").attr("data-isa-participant"));  // role sans data- (????)
 		$("body").pagecontainer("change", "#record", {transition: 'flip'});
-//			refreshUserParticipants();
+      // refreshUserParticipants();
 		}
 	});
 
@@ -669,52 +669,50 @@ function qAjaxTable(item, click, colName) { // item: nom de la commande (ex: Use
                                             // click: flag 'clickable'
                                             // colName: vrai nom col. tri OU vide
 
-    var selector = '#r' + item;
-    var selector2 = '#c' + item;
-    var url = 'q' + item + '.php';
-    var clickItem = 'c' + item + '.php';
+  var selector = '#r' + item;
+  var selector2 = '#c' + item;
+  var url = 'q' + item + '.php';
+  var clickItem = 'c' + item + '.php';
 	var order = findColNameOrder(colName);       // order: ordre du tri (asc ou desc)
 
-    if (($(selector + ' table').css("display") == "table") && (!colName)){
+  if (($(selector + ' table').css("display") == "table") && (!colName)){
 		$(selector + ' table').show().fadeOut(TIME_OUT);
-        $(selector2).hide();
-    }
-    else {
-		$("#cUserParticipants div").css({"border":"0px"});
+    $(selector2).hide();
+  }
+  else {
+	  $("#cUserParticipants div").css({"border":"0px"});
 
-		var buildRequete = buildChooseColsRequete();
-		var requete = buildRequete.requete;
-		var data = buildRequete.data;
-        $.ajax({
-            url: url,
-			      type: 'POST',
-            data: {'colName':colName, 'user':observateur, 'requete':requete, 'data':data, 'order':order},
-            complete: function(xhr, result) {
-				$(".loader").hide();
-                if (result != 'success') {
-                    alertIsa('Pas de réseau!\n', 'crimson', false);
-                }
-                else {
- 					$(selector2).show();
-					$(selector).html(xhr.responseText);
-					$(selector + ' table').hide().slideDown(TIME_OUT);
+	  var buildRequete = buildChooseColsRequete();
+	  var requete = buildRequete.requete;
+	  var data = buildRequete.data;
+    $.ajax({
+      url: url,
+      type: 'POST',
+      data: {'colName':colName, 'user':observateur, 'requete':requete, 'data':data, 'order':order},
+      complete: function(xhr, result) {
+	      $(".loader").hide();
+        if (result != 'success') {
+          alertIsa('Pas de réseau!\n', 'crimson', false);
+        }
+        else {
+            $(selector2).show();
+		      $(selector).html(xhr.responseText);
+		      $(selector + ' table').hide().slideDown(TIME_OUT);
 
-                    if (click) {
-                        $(selector + " table td").parent("tr").attr({"onmouseover":"$(this).css({'cursor':'pointer'})"
-							, "onclick":"if (event.target.nodeName!='A') clickItem($(this).attr('data-ISAobsId'), '" + item + "', false);"});
+          if (click) {
+            $(selector + " table td").parent("tr").attr({"onmouseover":"$(this).css({'cursor':'pointer'})", "onclick":"if (event.target.nodeName!='A') clickItem($(this).attr('data-ISAobsId'), '" + item + "', false);"});
+			      $(selector + " th").attr({"onmouseover":"$(this).css({'cursor':'pointer'})", "onclick":"$(this).css({'color':'steelBlue'})"});
+		      }
+		      if (order == 'DESC')
+			        $(selector + " div[data-ISAcolName='" + colName + "']").parent("th").css({"border-color":"limeGreen", "border-top-color":"white"});
+		      else
+			        $(selector + " div[data-ISAcolName='" + colName + "']").parent("th").css({"border-color":"limeGreen", "border-bottom-color":"white"});
 
-						$(selector + " th").attr({"onmouseover":"$(this).css({'cursor':'pointer'})"
-							, "onclick":"$(this).css({'color':'steelBlue'})"});
-					}
-					if (order == 'DESC')
-						$(selector + " div[data-ISAcolName='" + colName + "']").parent("th").css({"border-color":"limeGreen", "border-top-color":"white"});
-					else
-						$(selector + " div[data-ISAcolName='" + colName + "']").parent("th").css({"border-color":"limeGreen", "border-bottom-color":"white"});
-                    $(selector).hide().slideDown(TIME_OUT);
-                }
-            }
-        });
-    }
+          $(selector).hide().slideDown(TIME_OUT);
+        }
+      }
+    });
+  }
 }
 //**********************************************************************************************
 function openUserParticipants() {
@@ -1132,7 +1130,7 @@ function qAjaxTableChooseCols(command) {
 	$("#chooseColsPanel #colsBlock").html(panelCode).trigger( "updatelayout" );
 	$("#chooseColsPanel input").closest("div").trigger("create");
 
-	for (var col = 1; col < chooseCols.length; col++) {
+	for (let col = 1; col < chooseCols.length; col++) {
 		if (chooseCols[col].visible) $('#' + chooseCols[col].trueColName + 'panel').prop('checked',true).checkboxradio('refresh');
 	}
 }
@@ -1192,7 +1190,7 @@ function buildChooseColsRequete() {
 }
 //**********************************************************************************************
 function bricoShowHide () {
-	document.write( '<style>div[data-role="footer"]{visibility:hidden}@media(min-height:' + ($( window ).height() - 10) + 'px){div[data-role="footer"]{visibility:visible}}</style><style>div[data-role="header"]{visibility:hidden}@media(min-height:' + ($( window ).height() - 10) + 'px){div[data-role="header"]{visibility:visible}}</style>' );
+	window.document.write( '<style>div[data-role="footer"]{visibility:hidden}@media(min-height:' + ($( window ).height() - 10) + 'px){div[data-role="footer"]{visibility:visible}}</style><style>div[data-role="header"]{visibility:hidden}@media(min-height:' + ($( window ).height() - 10) + 'px){div[data-role="header"]{visibility:visible}}</style>' );
 }
 //**********************************************************************************************
 function isMobile() {
