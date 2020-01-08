@@ -20,7 +20,7 @@ var saisieOn = false;
 var protocole = {};
 
 
-var version = 'v0.36-48';  //   V E R S I O N
+var version = 'v0.36-49';  //   V E R S I O N
 
 protocole.version = '[' + version + ']' + navigator.platform + ' ' + navigator.userAgent;
 
