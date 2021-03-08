@@ -15,21 +15,21 @@
 
 	<script src="lib/jquery-2.1.0.min.js"></script>
 	<script src="scorescale.js"></script>
-
 	<script src="lib/jquery.mobile-1.4.2.min.js"></script>
 
 <!--																		S T Y L E    -->
 	<link rel="stylesheet" href="isa.css">
 
 	<script type="text/javascript">
-             window.history.forward();
-             function noBack() {
-                  window.history.forward();
-             }
-    </script>
-
+    window.history.forward();
+    function noBack() {
+      window.history.forward();
+    }
+  </script>
 </head>
+
 <body onload="noBack();" onpageshow="if (event.persisted) noBack();" onunload="">
+
 <?php																	//	P H P include
 include_once("displayExemples.php");
 include_once("connectMySQL.php");
@@ -96,7 +96,7 @@ $base = connectMySQL();
 		</div>
 		<br />
     </div>
-<!--.............................................      F O O T E R-->
+<!-- .............................................      F O O T E R-->
 
     <div data-role="footer" data-position="fixed" data-tap-toggle="false">
 		<div data-role="navbar" data-iconpos="bottom">
@@ -260,7 +260,7 @@ $base = connectMySQL();
 <!--...........................................  PANEL ACTIONS ..-->
 <div data-role="panel" id="chooseActionsPanel" data-display="overlay" data-position="right" style="background:#F0F0F0; opacity1;">
 	<br />
-	<div id="actualParPanel" cursor: pointer;" onmouseover="$(this).css({'cursor':'pointer'})" onclick="$('#chooseActionsPanel').panel('close');"></div>
+	<div id="actualParPanel" onmouseover="$(this).css({'cursor':'pointer'})" onclick="$('#chooseActionsPanel').panel('close');"></div>
 	<button id="reloadPar" class="action-button" data-mini='true'>Reprendre la cotation</button>
 	<button id="duplicatePar" class="action-button" data-mini='true'>Dupliquer</button>
 	<button id="deletePar" class="action-button" data-mini='true'>Supprimer</button>
@@ -276,7 +276,7 @@ $base = connectMySQL();
 </div>
 
 
-<!--...................  pop up ACTION sur passation ......... Hors Service .................--
+<!--...................  pop up ACTION sur passation ......... Hors Service .................
 <div data-role="popup" id="queryPopupMenu">
     <ul data-role="listview" data-inset="true" style="min-width:210px;">
 		<li data-role="list-divider">Passation</li>
@@ -444,7 +444,7 @@ L'ordre <u>à l'intérieur de chaque sous échelle</u> est plus flexible. On peu
 
 Deux actions sont proposées pour certains items au choix de l'examinateur.<br />
 </br >
-		<h2>Les objets</h2>
+<h2>Les objets</h2>
 
 <?php
 													//     liste objets
@@ -471,15 +471,15 @@ echo $toEcho;
 </div>
 	</div>
 <!--...............................................      F O O T E R  -->
-    <div data-role="footer">
+  <div data-role="footer">
 		<div data-role="navbar" data-iconpos="bottom">
 			<ul>
 <!--				<li><a href="#listeObjs"data-transition="slidedown" data-icon="arrow-u">Objets</a></li>-->
-				<li><a href="#accueil" data-transition="slide" data-icon="home">Accueil</a></li>
+			<li><a href="#accueil" data-transition="slide" data-icon="home">Accueil</a></li>
 <!--				<li><a href="#phase1" data-transition="slideup" data-icon="arrow-d">Phase 1</a></li>-->
 			</ul>
 		</div>
-    </div>
+  </div>
 </div>
 
 <!--********************************************************************************************************-->
@@ -489,7 +489,7 @@ echo $toEcho;
 	<div class="loader" style="display:none"><img src="images/loaderB32.gif" /></div>
 
 <!--...............................................      H E A D E R  -->
-    <div data-role="header">
+  <div data-role="header">
 		<div data-role="navbar" data-iconpos="top">
 			<ul>
 				<li><a href="#accueil" data-transition="slidedown" data-icon="home">Accueil</a></li>
@@ -497,45 +497,46 @@ echo $toEcho;
 				<li><a href="#query" data-transition="flip" data-icon="arrow-u-r">Passations</a></li>
 			</ul>
 		</div>
-    </div>
+  </div>
 
 <!--.........................................      C O N T E N T
 -->
 <div role="main" class="ui-content">
 
-		<br />
-		<div class="resumPass resumPass1"></div>
-		<div class="resumPass resumPass2" style="display:none">Phase 1</div>
-		<h1 class= "cotationTitle" >Phase 1</h1>
-		<h2 class="scoring">Imitation Spontanée</h2>
-		<br />
+	<br />
+	<div class="resumPass resumPass1"></div>
+	<div class="resumPass resumPass2" style="display:none">Phase 1</div>
+	<h1 class= "cotationTitle" >Phase 1</h1>
+	<h2 class="scoring">Imitation Spontanée</h2>
+	<br />
 
-		<div class="contentTextList">
+	<div class="contentTextList">
 		<h4>Consignes de cotation:</h4>
 
-<p>0 = Aucun intérêt manifesté pour l'objet</p>
-<p>1 = Mouvement non imitatif de la partie du corps concerné: intérêt manifesté pour l'objet (regard, mouvement ou  amorce de mouvement vers l'objet)</p>
-<p>2 = Imitation partielle (imitation impliquant une autre partie du corps, imitation sur un autre objet, tentative non aboutie), imitation d'une partie de la séquence seulement</p>
-<p>3 = Imitation réussie</p>
-<br />
-		</div>		<!----- fin contentTextList -->
+		<p>0 = Aucun intérêt manifesté pour l'objet</p>
+		<p>1 = Mouvement non imitatif de la partie du corps concerné: intérêt manifesté pour l'objet (regard, mouvement ou  amorce de mouvement vers l'objet)</p>
+		<p>2 = Imitation partielle (imitation impliquant une autre partie du corps, imitation sur un autre objet, tentative non aboutie), imitation d'une partie de la séquence seulement</p>
+		<p>3 = Imitation réussie</p>
+		<br />
+	</div>		<!----- fin contentTextList -->
 
 <!-------------------------------->
 
-<?php																				//	P H P
-	displayExemples("1");
-?>
+	<?php																				//	P H P
+		displayExemples("1");
+	?>
 
 <!------->
-</div>
-    <div data-role="footer">
+	</div>
+  <div data-role="footer">
 		<div data-role="navbar" data-iconpos="bottom">
 			<ul>
 				<li><a href="#phase2" data-transition="slideup" data-icon="arrow-d">Phase 2</a></li>
 				<li><a href="#phase3" data-transition="slideup" data-icon="arrow-d">Phase 3</a></li>
 			</ul>
 		</div>
-    </div>
+  </div>
+
 </div>
 
 
@@ -559,7 +560,7 @@ echo $toEcho;
 
 
 <!--.....................................................      C O N T E N T -->
-<div role="main" class="ui-content">
+	<div role="main" class="ui-content">
 
 		<br />
 		<div class="resumPass resumPass1"></div>
@@ -569,32 +570,33 @@ echo $toEcho;
 		<br />
 
 		<div class="contentTextList">
-		<h4>Consignes de cotation:</h4>
+			<h4>Consignes de cotation:</h4>
 
-<p>0 = Aucun intérêt manifesté pour l'imitation de l'expérimentateur</p>
-<p>1 = Touche, embrasse, regarde, sourit, vocalise, se rapproche ...</p>
-<p>2 = Reconnaissance avec test: change d'objet ou de mouvement en regardant ce que fait l'expérimentateur (teste l'intention d'imiter)</p>
-<p>3 = Reconnaissance menant à un tour de rôle: regarde ce que fait l'expérimentateur (E), puis imite à son tour et refait ensuite une autre proposition d'activité en regardant l'E (en général en souriant: il s'agit de communication)</p>
+			<p>0 = Aucun intérêt manifesté pour l'imitation de l'expérimentateur</p>
+			<p>1 = Touche, embrasse, regarde, sourit, vocalise, se rapproche ...</p>
+			<p>2 = Reconnaissance avec test: change d'objet ou de mouvement en regardant ce que fait l'expérimentateur (teste l'intention d'imiter)</p>
+			<p>3 = Reconnaissance menant à un tour de rôle: regarde ce que fait l'expérimentateur (E), puis imite à son tour et refait ensuite une autre proposition d'activité en regardant l'E (en général en souriant: il s'agit de communication)</p>
 
-<br />
-<p>L'expérimentateur peut produire différents types d'imitation selon ce que fait le sujet, mais doit au moins avoir fait deux essais de trois imitations:<br /> par exemple une posture, une imitation d'action familière et un geste non significatif, à 2 moments différents,  ou trois imitations d'action familère à deux moments différents, plus il y a de types d'imitation reconnus, meilleure est la reconnaissance
-Si l'enfant ne produit que des stéréotypies, il faut être prudent car les imiter peut mener parfoisà une réaction violente.</p><br />
+			<br />
+			<p>L'expérimentateur peut produire différents types d'imitation selon ce que fait le sujet, mais doit au moins avoir fait deux essais de trois imitations:<br /> par exemple une posture, une imitation d'action familière et un geste non significatif, à 2 moments différents,  ou trois imitations d'action familère à deux moments différents, plus il y a de types d'imitation reconnus, meilleure est la reconnaissance
+			Si l'enfant ne produit que des stéréotypies, il faut être prudent car les imiter peut mener parfoisà une réaction violente.</p><br />
 		</div>
-<!-------------------------------->
+	<!-------------------------------->
 
-<?php																				//	P H P
-displayExemples("2");
-?>
+	<?php																				//	P H P
+	displayExemples("2");
+	?>
 
-</div>
-    <div data-role="footer">
+	</div>
+<!-- .............................................      F O O T E R-->
+  <div data-role="footer">
 		<div data-role="navbar" data-iconpos="bottom">
 			<ul>
 				<li><a href="#phase1" data-transition="slideup" data-icon="arrow-d">Phase 1</a></li>
 				<li><a href="#phase3" data-transition="slideup" data-icon="arrow-d">Phase 3</a></li>
 			</ul>
 		</div>
-    </div>
+  </div>
 </div>
 
 
@@ -618,7 +620,7 @@ displayExemples("2");
 
 
 <!--.....................................................      C O N T E N T -->
-<div role="main" class="ui-content">
+	<div role="main" class="ui-content">
 
 		<br />
 		<div class="resumPass resumPass1"></div>
@@ -628,30 +630,30 @@ displayExemples("2");
 		<br />
 
 		<div class="contentTextList">
-		<h4>Consignes de cotation:</h4>
+			<h4>Consignes de cotation:</h4>
 
-<p>0 = Aucun intérêt manifesté pour l'objet</p>
-<p>1 = Intérêt manifesté pour l'objet (regard, mouvement ou amorce de mouvement vers l'objet, mouvement non imitatif de la partie du corps concerné)</p>
-<p>2 = Imitation partielle (imitation impliquant une autre partie du corps, imitation sur un autre objet, tentative non aboutie), imitation d'une partie de la séquence seulement</p>
-<p>3 = Imitation réussie</p>
-<br />
+			<p>0 = Aucun intérêt manifesté pour l'objet</p>
+			<p>1 = Intérêt manifesté pour l'objet (regard, mouvement ou amorce de mouvement vers l'objet, mouvement non imitatif de la partie du corps concerné)</p>
+			<p>2 = Imitation partielle (imitation impliquant une autre partie du corps, imitation sur un autre objet, tentative non aboutie), imitation d'une partie de la séquence seulement</p>
+			<p>3 = Imitation réussie</p>
+			<br />
 		</div>
-<!-------------------------------->
+	<!-------------------------------->
 
-<?php																					//	P H P
-displayExemples("3");
-?>
+		<?php																					//	P H P
+		displayExemples("3");
+		?>
+	</div>
 
-
-		</div>
-    <div data-role="footer">
-		<div data-role="navbar" data-iconpos="bottom">
-			<ul>
-				<li><a href="#phase1" data-transition="slideup" data-icon="arrow-d">Phase 1</a></li>
-				<li><a href="#phase2" data-transition="slideup" data-icon="arrow-d">Phase 2</a></li>
-			</ul>
-		</div>
-    </div>
+<!-- .............................................      F O O T E R-->
+  <div data-role="footer">
+	<div data-role="navbar" data-iconpos="bottom">
+		<ul>
+			<li><a href="#phase1" data-transition="slideup" data-icon="arrow-d">Phase 1</a></li>
+			<li><a href="#phase2" data-transition="slideup" data-icon="arrow-d">Phase 2</a></li>
+		</ul>
+	</div>
+  </div>
 
 </div>
 
