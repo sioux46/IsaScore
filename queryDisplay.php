@@ -225,7 +225,7 @@ function detail($base, $id) {
 	$reponse .= "<strong>#3:</strong>&nbsp;" . $color . $row['rem3'] . "</span><br />";
 	$reponse .= "</strong>";
 
-	$reponse .= miniDetail($base, $id) . "<br />";
+	$reponse .= miniDetail($base, $id, "") . "<br />";
 
 	for ($phase = 1; $phase <= 3; $phase++) {
 		$reponse .= "<strong>PHASE$phase:</strong><br />";

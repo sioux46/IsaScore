@@ -1,6 +1,8 @@
 <?php
 function connectMySQL() {
-	$isa_base = new mysqli("localhost","isa","isa2014","isascoring");
+	//	$isa_base = new mysqli("localhost","isa","isa2014","isascoring");
+	$isa_base = new mysqli("localhost","sioux","sioux","isascore");
+
 	if ($isa_base->connect_errno) {
 		echo "Connexion à la base impossible. ";
 		echo $isa_base->connect_error;
